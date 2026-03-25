@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Toward Pluralizing Reflection in HCI through Daoism</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iIzFlMWExNCIvPjxwYXRoIGQ9Ik01MCwwIEE1MCw1MCAwIDAsMSA1MCwxMDAgQTI1LDI1IDAgMCwxIDUwLDUwIEEyNSwyNSAwIDAsMCA1MCwwIiBmaWxsPSIjZjJlZGUzIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSIyNSIgcj0iMTIuNSIgZmlsbD0iI2YyZWRlMyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNzUiIHI9IjEyLjUiIGZpbGw9IiMxZTFhMTQiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjI1IiByPSI0IiBmaWxsPSIjMWUxYTE0Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSI3NSIgcj0iNCIgZmlsbD0iI2YyZWRlMyIvPjwvc3ZnPg=="/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=Noto+Serif+SC:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#f2ede3;--paper-dark:#e8e0d0;--ink:#1e1a14;--ink-mid:#5a5044;
+  --ink-faint:#9a9080;--accent:#c0502a;--accent-light:#e8c4b0;
+  --serif:'EB Garamond',Georgia,serif;--display:'Cormorant Garamond',Georgia,serif;
+  --body:'Source Serif 4',Georgia,serif;--zh:'Noto Serif SC','Songti SC','SimSun',serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.75;overflow-x:hidden}
+.zh{font-family:var(--zh)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;gap:1.8rem;padding:.7rem 2rem;background:rgba(242,237,227,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(30,26,20,.1);font-family:var(--serif);font-size:12.5px;letter-spacing:.09em;color:var(--ink-mid);flex-wrap:wrap}
+nav a{text-decoration:none;color:inherit;transition:color .2s}
+nav a:hover{color:var(--accent)}
+.hero{min-height:100vh;display:grid;place-items:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.07;pointer-events:none}
+.hero-bg svg{width:80vmin;height:80vmin}
+.hero-content{position:relative;text-align:center;max-width:820px}
+.venue-tag{display:inline-block;font-family:var(--serif);font-size:12px;letter-spacing:.16em;color:var(--accent);border:1px solid var(--accent-light);padding:.3rem 1rem;border-radius:2px;margin-bottom:1.8rem;animation:fadeUp .8s ease both}
+h1{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;line-height:1.18;color:var(--ink);margin-bottom:1.8rem;animation:fadeUp .8s .15s ease both}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--serif);font-size:13px;letter-spacing:.08em;padding:.6rem 1.3rem;border-radius:2px;text-decoration:none;transition:all .2s;border:1px solid}
+.btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+section{max-width:820px;margin:0 auto;padding:3.5rem 2rem}
+.section-wide{max-width:1100px;margin:0 auto;padding:3.5rem 2rem}
+.section-label{font-family:var(--serif);font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:.8rem;display:block}
+h2{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;line-height:1.25;margin-bottom:1.2rem;color:var(--ink)}
+.divider{width:48px;height:1px;background:var(--accent);margin-bottom:1.8rem}
+p{margin-bottom:1.2rem;color:var(--ink-mid)}
+p:last-child{margin-bottom:0}
+.authors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
+.author-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;padding:1.8rem 1.2rem;border:1px solid rgba(30,26,20,.1);transition:background .2s}
+.author-card:hover{background:var(--paper-dark)}
+.author-photo-wrap{width:88px;height:88px;border-radius:50%;overflow:hidden;border:1px solid rgba(30,26,20,.15)}
+.author-photo{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(15%)}
+.author-name{font-family:var(--display);font-size:1.1rem;font-weight:400;color:var(--ink)}
+.author-affil{font-family:var(--serif);font-size:11.5px;color:var(--ink-faint);line-height:1.5}
+.author-link{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--serif);font-size:12px;color:var(--accent);text-decoration:none;letter-spacing:.04em;transition:opacity .2s}
+.author-link:hover{opacity:.7}
+.concept-grid{display:grid;grid-template-columns:auto 1fr 1fr;gap:0;border:1px solid rgba(30,26,20,.15)}
+.cg-header{font-family:var(--serif);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:.7rem 1.1rem;border-bottom:1px solid rgba(30,26,20,.15);background:rgba(30,26,20,.03)}
+.cg-cell{padding:1rem 1.1rem;border-bottom:1px solid rgba(30,26,20,.08);font-size:15px}
+.cg-cell:not(:last-child){border-right:1px solid rgba(30,26,20,.08)}
+.cg-concept{font-family:var(--display);font-size:1.05rem;font-style:italic;color:var(--ink)}
+.cg-zh{display:block;font-size:1.25rem;color:var(--accent);font-style:normal;margin-bottom:.1rem;font-family:var(--zh)}
+/* Three-column fixed layout for findings */
+.dimensions{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(30,26,20,.1);border:1px solid rgba(30,26,20,.1)}
+.dim-card{background:var(--paper);padding:2rem 1.8rem;position:relative;transition:background .25s}
+.dim-card:hover{background:var(--paper-dark)}
+.dim-number{font-family:var(--display);font-size:4rem;font-weight:300;color:rgba(30,26,20,.06);position:absolute;top:1rem;right:1.5rem;line-height:1}
+.dim-title{font-family:var(--display);font-size:1.7rem;font-weight:400;font-style:italic;color:var(--ink);margin-bottom:.3rem}
+.dim-subtitle{font-family:var(--serif);font-size:11px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:.8rem;display:block}
+.dim-desc{font-size:15px;color:var(--ink-mid);line-height:1.65;margin:0}
+.pullquote{border-left:2px solid var(--accent);padding:1.2rem 1.8rem;margin:2rem 0;background:rgba(192,80,42,.04)}
+.pullquote p{font-family:var(--display);font-size:1.3rem;font-weight:300;font-style:italic;color:var(--ink);line-height:1.5;margin-bottom:.5rem}
+.pullquote cite{font-family:var(--serif);font-size:12px;letter-spacing:.1em;color:var(--ink-faint);font-style:normal}
+.shift-row{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;border:1px solid rgba(30,26,20,.12);margin-bottom:2px}
+.shift-from{padding:.9rem 1.3rem;background:rgba(30,26,20,.03);font-size:14px;color:var(--ink-mid);border-right:1px solid rgba(30,26,20,.1)}
+.shift-arrow{display:flex;align-items:center;justify-content:center;padding:0 .9rem;color:var(--accent);font-size:1.1rem}
+.shift-to{padding:.9rem 1.3rem;font-size:14px;color:var(--ink);border-left:1px solid rgba(30,26,20,.1)}
+.shift-label{font-family:var(--serif);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:.2rem}
+/* comparison table */
+.comp-table{width:100%;border-collapse:collapse;margin-top:1.8rem;font-size:15px}
+.comp-table th{font-family:var(--serif);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:.7rem 1.1rem;border-bottom:1.5px solid rgba(30,26,20,.2);text-align:left;font-weight:400}
+.comp-table th:first-child{color:var(--accent)}
+.comp-table td{padding:.85rem 1.1rem;border-bottom:1px solid rgba(30,26,20,.07);vertical-align:top;color:var(--ink-mid);font-family:var(--body)}
+.comp-table td:first-child{font-family:var(--serif);color:var(--ink);font-size:14px;white-space:nowrap}
+.comp-table td:last-child{color:var(--ink)}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table tr:hover td{background:rgba(30,26,20,.02)}
+.comp-table em{font-style:italic;color:var(--ink)}
+.ack-box{background:var(--paper-dark);border:1px solid rgba(30,26,20,.1);padding:1.8rem 2rem;font-family:var(--serif);font-size:14.5px;color:var(--ink-mid);line-height:1.75}
+.citation-box{background:var(--paper-dark);border:1px solid rgba(30,26,20,.12);padding:1.8rem 2rem;font-family:'Courier New',monospace;font-size:12.5px;line-height:1.7;color:var(--ink-mid);white-space:pre-wrap;word-break:break-word;position:relative}
+.copy-btn{position:absolute;top:1rem;right:1rem;font-family:var(--serif);font-size:11px;letter-spacing:.08em;color:var(--ink-faint);border:1px solid rgba(30,26,20,.2);background:transparent;padding:.3rem .7rem;cursor:pointer;transition:all .2s}
+.copy-btn:hover{color:var(--accent);border-color:var(--accent)}
+footer{border-top:1px solid rgba(30,26,20,.1);padding:2.5rem 2rem;text-align:center;font-family:var(--serif);font-size:13px;color:var(--ink-faint)}
+footer a{color:var(--accent);text-decoration:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:rgba(30,26,20,.2);border-radius:3px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#authors">Authors</a>
+  <a href="#abstract">Abstract</a>
+  <a href="#daoism">Daoism</a>
+  <a href="#findings">Findings</a>
+  <a href="#implications">Implications</a>
+  <a href="#acknowledgements">Acknowledgements</a>
+  <a href="#citation">Citation</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="200" cy="200" rx="185" ry="185" fill="none" stroke="#2a2520" stroke-width="0.5"/>
+      <ellipse cx="200" cy="200" rx="148" ry="148" fill="none" stroke="#2a2520" stroke-width="0.6"/>
+      <ellipse cx="200" cy="200" rx="110" ry="110" fill="none" stroke="#2a2520" stroke-width="0.7"/>
+      <ellipse cx="200" cy="200" rx="72" ry="72" fill="none" stroke="#2a2520" stroke-width="0.9"/>
+      <ellipse cx="200" cy="200" rx="36" ry="36" fill="none" stroke="#2a2520" stroke-width="1.1"/>
+      <circle cx="200" cy="200" r="4" fill="#2a2520"/>
+      <path d="M200,164 C204,150 212,136 216,118" fill="none" stroke="#2a2520" stroke-width="0.5" stroke-dasharray="2 4"/>
+      <path d="M200,236 C196,250 188,264 184,282" fill="none" stroke="#2a2520" stroke-width="0.5" stroke-dasharray="2 4"/>
+      <path d="M164,200 C150,196 136,188 118,184" fill="none" stroke="#2a2520" stroke-width="0.5" stroke-dasharray="2 4"/>
+      <path d="M236,200 C250,204 264,212 282,216" fill="none" stroke="#2a2520" stroke-width="0.5" stroke-dasharray="2 4"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <span class="venue-tag">CHI 2026 Paper</span>
+    <h1>Toward Pluralizing<br/><em>Reflection</em> in HCI<br/>through Daoism</h1>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="https://arxiv.org/abs/2601.22831" target="_blank">&#8599; Paper (arXiv)</a>
+      <a class="btn btn-primary" href="https://doi.org/10.1145/3772318.3790853" target="_blank">DOI</a>
+      <a class="btn btn-primary" href="https://drive.google.com/file/d/1e96LlTG145wsIG-64oEd3JFuGwIbPRoB/view?usp=sharing" target="_blank">&#9654; Presentation Slides</a>
+    </div>
+  </div>
+</div>
+
+<section id="authors">
+  <div class="reveal">
+    <span class="section-label">Authors</span>
+    <h2>Research team</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="authors-grid reveal">
+    <div class="author-card">
+      <div class="author-photo-wrap">
+        <img src="data:image/jpeg;base64,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" alt="Aaron Pengyu Zhu" class="author-photo"/>
+      </div>
+      <div class="author-name">Aaron Pengyu Zhu</div>
+      <div class="author-affil">Division of Industrial Design<br/>National University of Singapore</div>
+      <a class="author-link" href="https://aaronzhu.me/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> aaronzhu.me</a>
+    </div>
+    <div class="author-card">
+      <div class="author-photo-wrap">
+        <img src="data:image/jpeg;base64,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" alt="Kristina Mah" class="author-photo"/>
+      </div>
+      <div class="author-name">Kristina Mah</div>
+      <div class="author-affil">Design Lab, School of Architecture,<br/>Design and Planning<br/>The University of Sydney</div>
+      <a class="author-link" href="https://kristinamah.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> kristinamah.com</a>
+    </div>
+    <div class="author-card">
+      <div class="author-photo-wrap">
+        <img src="data:image/jpeg;base64,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" alt="Janghee Cho" class="author-photo"/>
+      </div>
+      <div class="author-name">Janghee Cho</div>
+      <div class="author-affil">Division of Industrial Design<br/>National University of Singapore</div>
+      <a class="author-link" href="https://www.jangheecho.com/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> jangheecho.com</a>
+    </div>
+  </div>
+</section>
+
+<section id="abstract">
+  <div class="reveal">
+    <span class="section-label">Abstract</span>
+    <h2>Reimagining reflection<br/>beyond the Western gaze</h2>
+    <div class="divider"></div>
+    <p>Reflection is fundamental to how people make sense of everyday life, helping them navigate moments of growth, uncertainty, and change. Yet in HCI, existing frameworks of designing technologies to support reflection remain narrow — emphasizing cognitive, rational problem-solving and individual self-improvement.</p>
+    <p>We introduce Daoist philosophy as a non-Western lens to broaden this scope and reimagine reflective practices in interactive systems. Combining insights from Daoist literature with semi-structured interviews with <strong>18 Daoist priests, scholars, and practitioners</strong>, we identified three key dimensions of everyday reflection: <em>Stillness</em>, <em>Resonance</em>, and <em>Emergence</em>.</p>
+    <p>These dimensions reveal emergent, embodied, relational, and ethically driven qualities often overlooked in HCI research. We articulate their potential to inform alternative frameworks for interactive systems for reflection, advocating a shift from reflection toward <em>reflecting-with</em>, and highlight the potential of Daoism as an epistemological resource for the HCI community.</p>
+    <div class="pullquote reveal">
+      <p>"The way is empty, yet use will not drain it."</p>
+      <cite>— Laozi, <span class="zh">道德經</span> Dao De Jing, Verse 04</cite>
+    </div>
+  </div>
+</section>
+
+<section id="daoism">
+  <div class="reveal">
+    <span class="section-label">Theoretical Background</span>
+    <h2>Four Daoist concepts as scaffolding</h2>
+    <div class="divider"></div>
+    <p>Rather than offering a doctrinal account of Daoism, we draw on its central ideas as resources for developing an alternative framework of reflection in HCI — complementing Western perspectives while sensitively introducing non-Western ways of knowing.</p>
+  </div>
+  <div class="concept-grid reveal" style="margin-top:1.5rem">
+    <div class="cg-header">Concept</div>
+    <div class="cg-header">Definition</div>
+    <div class="cg-header">Connection to Reflection</div>
+    <div class="cg-cell"><span class="cg-concept"><span class="cg-zh">道</span>Dao</span></div>
+    <div class="cg-cell">The origin of the myriad phenomena; the generative cosmic force underlying all existence.</div>
+    <div class="cg-cell">Reflection is grounded in embodied alignment with one's environment rather than abstract reasoning.</div>
+    <div class="cg-cell"><span class="cg-concept"><span class="cg-zh">自然</span>Zi-Ran</span></div>
+    <div class="cg-cell">"Self-soing" or spontaneity; the natural unfolding of things without artificial interruption.</div>
+    <div class="cg-cell">Emphasizes relational existence within reflection; the self arises through attunement, not autonomy.</div>
+    <div class="cg-cell"><span class="cg-concept"><span class="cg-zh">無為</span>Wu-Wei</span></div>
+    <div class="cg-cell">Effortless or non-purposive action; acting without selfish desire or deliberate control.</div>
+    <div class="cg-cell">Reflection is not deliberate problem-solving but cultivating attunement to circumstances with minimal resistance.</div>
+    <div class="cg-cell" style="border-bottom:none"><span class="cg-concept"><span class="cg-zh">陰陽</span>Yin-Yang</span></div>
+    <div class="cg-cell" style="border-bottom:none">Interdependence and dynamic complementarity; any state contains the seed of its opposite.</div>
+    <div class="cg-cell" style="border-bottom:none">Reflection resists fixed conclusions and embraces change and productive tension.</div>
+  </div>
+</section>
+
+<div class="section-wide" id="findings">
+  <div class="reveal" style="text-align:center;margin-bottom:2.5rem">
+    <span class="section-label">Key Findings</span>
+    <h2>Three dimensions of Daoist reflection</h2>
+    <div class="divider" style="margin:1rem auto 0"></div>
+  </div>
+  <div class="dimensions reveal">
+    <div class="dim-card">
+      <span class="dim-number">I</span>
+      <div style="margin-bottom:1rem">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="24" rx="20" ry="9" stroke="#2a2520" stroke-width="0.6" opacity="0.2"/><ellipse cx="24" cy="24" rx="14" ry="6.3" stroke="#2a2520" stroke-width="0.7" opacity="0.35"/><ellipse cx="24" cy="24" rx="8.5" ry="3.8" stroke="#2a2520" stroke-width="0.9" opacity="0.6"/><ellipse cx="24" cy="24" rx="3.5" ry="1.6" stroke="#2a2520" stroke-width="1.1" opacity="0.85"/><circle cx="24" cy="24" r="1.2" fill="#2a2520"/></svg>
+      </div>
+      <div class="dim-title">Stillness</div>
+      <span class="dim-subtitle">Forgetting · Silence</span>
+      <p class="dim-desc">A pre-cognitive, embodied openness that loosens the self and creates space for meaning to appear. Through forgetting social roles and practicing active silence, individuals cultivate receptive awareness — not constructing the self, but loosening it.</p>
+    </div>
+    <div class="dim-card">
+      <span class="dim-number">II</span>
+      <div style="margin-bottom:1rem">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none"><path d="M4,24 C10,16 18,10 24,24 C30,38 38,32 44,24" stroke="#2a2520" stroke-width="1.0" opacity="0.75"/><path d="M4,28 C10,20 18,14 24,28 C30,42 38,36 44,28" stroke="#2a2520" stroke-width="0.5" opacity="0.3"/><path d="M4,20 C10,12 18,6 24,20 C30,34 38,28 44,20" stroke="#2a2520" stroke-width="0.5" opacity="0.3"/><circle cx="24" cy="24" r="3" fill="none" stroke="#2a2520" stroke-width="0.9"/><circle cx="24" cy="24" r="1" fill="#2a2520"/></svg>
+      </div>
+      <div class="dim-title">Resonance</div>
+      <span class="dim-subtitle">Listening · Observation</span>
+      <p class="dim-desc">Meaning arising through inward attentiveness and outward sensitivity. Drawing on <span class="zh">感應</span> (Gan-Ying), resonance frames reflection as relational — attending to inner presence and maintaining mirror-like, non-judgmental awareness of situations.</p>
+    </div>
+    <div class="dim-card">
+      <span class="dim-number">III</span>
+      <div style="margin-bottom:1rem">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="#2a2520" stroke-width="0.4" opacity="0.2"/><circle cx="24" cy="24" r="14" stroke="#2a2520" stroke-width="0.5" opacity="0.3"/><circle cx="24" cy="24" r="8" stroke="#2a2520" stroke-width="0.7" opacity="0.5"/><path d="M24,16 C28,10 36,8 40,12" stroke="#2a2520" stroke-width="0.8" opacity="0.7"/><path d="M32,24 C38,28 40,36 36,40" stroke="#2a2520" stroke-width="0.8" opacity="0.7"/><path d="M24,32 C20,38 12,40 8,36" stroke="#2a2520" stroke-width="0.8" opacity="0.7"/><path d="M16,24 C10,20 8,12 12,8" stroke="#2a2520" stroke-width="0.8" opacity="0.7"/><circle cx="24" cy="24" r="2.5" fill="none" stroke="#2a2520" stroke-width="0.9"/><circle cx="24" cy="24" r="1" fill="#2a2520"/></svg>
+      </div>
+      <div class="dim-title">Emergence</div>
+      <span class="dim-subtitle">Attunement · Becoming</span>
+      <p class="dim-desc">A dynamic attunement aligning self with bodily rhythms, situational flows, and natural cycles — while dissolving ego-boundaries into relational transformation. Inspired by Zhuangzi's Butterfly Dream: boundaries between self and other collapse into shared becoming (<span class="zh">大化</span>).</p>
+    </div>
+  </div>
+</div>
+
+<section id="implications">
+  <div class="reveal">
+    <span class="section-label">Design Implications</span>
+    <h2>From reflection to <em>reflecting-with</em></h2>
+    <div class="divider"></div>
+    <p>Our findings suggest three design orientations for technologies that support reflection — each departing from the dominant logic of data-driven self-optimization.</p>
+  </div>
+  <div style="margin-top:2rem">
+    <div class="shift-row reveal">
+      <div class="shift-from"><span class="shift-label">existing approach</span>AI-generated insights and visualizations define what counts as meaningful</div>
+      <div class="shift-arrow">&#8594;</div>
+      <div class="shift-to"><span class="shift-label">The art of forgetting</span>Auto-clear tracked data at intervals · shift prompts from questions to bodily cues · design silence into the interface</div>
+    </div>
+    <div class="shift-row reveal">
+      <div class="shift-from"><span class="shift-label">existing approach</span>Negative emotions treated as obstacles to be resolved toward positive outcomes</div>
+      <div class="shift-arrow">&#8594;</div>
+      <div class="shift-to"><span class="shift-label">Flowing with uncertainties</span>Open, ambiguous representations that support dwelling-with negativity rather than converting it</div>
+    </div>
+    <div class="shift-row reveal">
+      <div class="shift-from"><span class="shift-label">existing approach</span>Human-centered tools that trigger reflection through data collection and display</div>
+      <div class="shift-arrow">&#8594;</div>
+      <div class="shift-to"><span class="shift-label">Reflecting-with</span>Technology as a Wu-Wei companion — receding into the background, responding fluidly, co-creating meaning as situations unfold</div>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin-top:3rem">
+    <span class="section-label" style="margin-bottom:.6rem">Comparison</span>
+    <h2 style="font-size:clamp(1.3rem,2.5vw,1.9rem)">HCI reflection vs. Daoist reflection</h2>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>HCI / Western Reflection</th>
+          <th>Daoist Reflection</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Orientation</td><td>Thinking about experience</td><td>Being within experience</td></tr>
+        <tr><td>Cognitive mode</td><td>Deliberate reasoning</td><td>Attuned awareness</td></tr>
+        <tr><td>Effort</td><td>Active cognitive effort</td><td><em>Wuwei</em> (non-forcing)</td></tr>
+        <tr><td>Process style</td><td>Analytical processing</td><td>Experiential sensing</td></tr>
+        <tr><td>Relationship to experience</td><td>Observing from distance</td><td>Immersed in experience</td></tr>
+        <tr><td>Knowledge formation</td><td>Explanation &amp; interpretation</td><td>Insight through attunement</td></tr>
+        <tr><td>Body–mind relation</td><td>Mind-centered cognition</td><td>Embodied awareness</td></tr>
+        <tr><td>Reflection mechanism</td><td>Questioning &amp; analysis</td><td>Resonance &amp; emergence</td></tr>
+        <tr><td>Temporality</td><td>Past and future</td><td>Present</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="acknowledgements">
+  <div class="reveal">
+    <span class="section-label">Acknowledgements</span>
+    <h2>With gratitude</h2>
+    <div class="divider"></div>
+    <div class="ack-box">
+      <p>We thank all participants for their time and insights. We also thank the reviewers for their constructive feedback, as well as members of the Joyful Experiences in Design and Interaction (JEDI) Lab for their valuable input.</p>
+      <p style="margin-top:1rem">We gratefully acknowledge the Daoist internal arts and contemplative lineages that informed the embodied practices and ethical orientations underpinning this research.</p>
+      <p style="margin-top:1rem">This work was supported by the <strong>Humanities and Social Sciences Seed Fund</strong> (ID: A-8002870-00-00), funded by the National University of Singapore.</p>
+    </div>
+  </div>
+</section>
+
+<section id="citation">
+  <div class="reveal">
+    <span class="section-label">Citation</span>
+    <h2>Cite this work</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="citation-box reveal"><button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.innerText.replace('Copy','').trim())">Copy</button>@inproceedings{zhu2026toward,
+  author    = {Zhu, Aaron Pengyu and Mah, Kristina and Cho, Janghee},
+  title     = {Toward Pluralizing Reflection in HCI through Daoism},
+  booktitle = {Proceedings of the 2026 CHI Conference on Human
+               Factors in Computing Systems},
+  series    = {CHI '26},
+  year      = {2026},
+  location  = {Barcelona, Spain},
+  publisher = {ACM},
+  doi       = {10.1145/3772318.3790853}
+}</div>
+</section>
+
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.1});
+reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
